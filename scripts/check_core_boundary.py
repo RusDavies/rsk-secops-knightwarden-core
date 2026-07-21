@@ -16,6 +16,10 @@ TEXT_SUFFIXES = {
     ".json",
 }
 ALLOWED_PRIVATE_IDENTIFIER_REFERENCES = {"scripts/check_core_boundary.py"}
+FORBIDDEN_PUBLIC_LABELS = {
+    "Clean-start KnightWarden open-core candidate package": "migration/process package description",
+    "Run boundary checks": "public CI step label",
+}
 
 
 def require(condition: bool, message: str) -> None:
@@ -78,6 +82,9 @@ def main() -> int:
             require("rsk-secops-knightwarden-commercial" not in content, f"{rel} references commercial repo")
             require("rsk-secops-knightwarden-mgmt" not in content, f"{rel} references management repo")
             require("rsk-secops-ai-governance-mgmt" not in content, f"{rel} references management repo")
+        for token, reason in FORBIDDEN_PUBLIC_LABELS.items():
+            if token in content:
+                require(rel in ALLOWED_PRIVATE_IDENTIFIER_REFERENCES, f"{rel} contains {reason}: {token}")
 
     print("core_boundary_ok files=%d" % len(tracked_text_files()))
     return 0
