@@ -26,6 +26,12 @@ GENERATED_PATH_MARKERS = (
     ".egg-info/",
 )
 GENERATED_SUFFIXES = (".pyc", ".pyo")
+REQUIRED_PUBLIC_TEMPLATES = [
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+]
 
 
 def require(condition: bool, message: str) -> None:
@@ -48,6 +54,8 @@ def main() -> int:
     gitignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
     for pattern in sorted(REQUIRED_GITIGNORE_PATTERNS):
         require(pattern in gitignore, f".gitignore missing generated-artifact pattern: {pattern}")
+    for rel in REQUIRED_PUBLIC_TEMPLATES:
+        require((ROOT / rel).exists(), f"missing public contribution template: {rel}")
 
     tracked_generated = [
         path

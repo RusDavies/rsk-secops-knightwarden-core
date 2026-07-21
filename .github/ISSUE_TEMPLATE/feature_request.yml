@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a portable KnightWarden Core improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep requests focused on portable public-core behavior. Product-specific integrations, deployment wiring, and sensitive operational details should stay out of public issues.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What portable governance problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What public-core behavior, contract, schema, or helper would help?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Any simpler alternatives or compatibility concerns?
+    validations:
+      required: false
