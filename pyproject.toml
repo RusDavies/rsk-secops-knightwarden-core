@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "knightwarden-core"
 version = "0.1.0"
-description = "Clean-start KnightWarden open-core candidate package"
+description = "KnightWarden governance primitives."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"

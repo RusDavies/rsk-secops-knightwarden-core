@@ -23,7 +23,7 @@ jobs:
       - name: Compile Python sources
         run: python -m compileall -q src scripts tests
 
-      - name: Run boundary checks
+      - name: Run validation checks
         run: |
           python scripts/check_core_boundary.py
           python scripts/check_external_workflow_reference_model.py
