@@ -4,8 +4,8 @@ Thanks for taking the time to improve KnightWarden Core.
 
 ## Before You Open a Pull Request
 
-- Keep changes downstream-agnostic. This repository should not depend on management systems, customer-specific configuration, or downstream extension packages.
-- Do not include secrets, credentials, customer data, private evidence, raw prompts, transcripts, mailbox contents, or machine-local paths.
+- Keep changes portable and focused on core library behavior. Do not add organization-specific configuration, deployment wiring, or product-specific integrations.
+- Do not include secrets, credentials, customer data, raw prompts, transcripts, mailbox contents, or machine-local paths.
 - Keep fixtures fictional and clearly example-shaped.
 - Prefer small pull requests with a focused explanation of the behavior or contract being changed.
 
