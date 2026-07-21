@@ -25,6 +25,7 @@ This repository currently includes local schema validation, tenant capacity limi
 
 ```text
 python3 -m compileall -q src scripts tests
+python3 scripts/check_public_repo_hygiene.py
 python3 scripts/check_core_boundary.py
 python3 scripts/check_external_workflow_reference_model.py
 python3 scripts/check_normalized_external_approval_vocabulary.py
