@@ -1,5 +1,8 @@
 # KnightWarden Core
 
+[![CI](https://github.com/RusDavies/rsk-secops-knightwarden-core/actions/workflows/ci.yml/badge.svg)](https://github.com/RusDavies/rsk-secops-knightwarden-core/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 Open-core repository for KnightWarden governance primitives.
 
 This repository contains downstream-agnostic core code only: public contracts, local/self-hosted primitives, fictional fixtures, transparent checks, and tests.
@@ -35,3 +38,8 @@ python3 scripts/check_external_workflow_reference_model.py
 python3 scripts/check_normalized_external_approval_vocabulary.py
 python3 -m unittest discover -s tests
 ```
+
+## Contributing and Security
+
+- See `CONTRIBUTING.md` before opening a pull request.
+- See `SECURITY.md` for vulnerability reporting.
