@@ -60,12 +60,10 @@ def main() -> int:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for token in [
         "Open-core repository for KnightWarden governance primitives.",
-        "Core package namespace: `knightwarden`.",
-        "Core must not import, depend on, or assume downstream extension packages.",
-        "Implementation-specific package names belong in boundary checkers and non-public planning records, not public-facing README prose.",
         "first core nucleus",
     ]:
         require(token in readme, f"README.md missing token: {token}")
+    require("## Boundary" not in readme, "README.md must not expose a boundary section")
     require("knightwarden_enterprise" not in readme, "README.md must not name private/commercial package identifiers")
 
     for path in tracked_text_files():
