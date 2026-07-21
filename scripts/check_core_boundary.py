@@ -53,7 +53,7 @@ def main() -> int:
         "docs/normalized-external-approval-vocabulary.md",
         "scripts/check_external_workflow_reference_model.py",
         "scripts/check_normalized_external_approval_vocabulary.py",
-        "tests/test_core_nucleus.py",
+        "tests/test_core_primitives.py",
         "tests/test_external_workflow_reference_schema.py",
     ]:
         require((ROOT / rel).exists(), f"missing reviewed core nucleus file: {rel}")
@@ -78,6 +78,12 @@ def main() -> int:
             require(rel in ALLOWED_PRIVATE_IDENTIFIER_REFERENCES, f"{rel} references knightwarden_enterprise")
         if "from kightwarden." in content or "import kightwarden." in content:
             require(rel in ALLOWED_PRIVATE_IDENTIFIER_REFERENCES, f"{rel} uses legacy kightwarden import path")
+        if rel not in ALLOWED_PRIVATE_IDENTIFIER_REFERENCES:
+            require("KightWarden" not in content, f"{rel} uses legacy product spelling")
+            require("kightwarden.local" not in content, f"{rel} uses legacy schema host spelling")
+            require("open-core package scaffold" not in content, f"{rel} contains scaffold wording")
+            require("Open-core / enterprise boundary" not in content, f"{rel} contains public boundary heading")
+            require("Recommended split:" not in content, f"{rel} contains migration split wording")
         if rel not in ALLOWED_PRIVATE_IDENTIFIER_REFERENCES:
             require("rsk-secops-knightwarden-commercial" not in content, f"{rel} references commercial repo")
             require("rsk-secops-knightwarden-mgmt" not in content, f"{rel} references management repo")

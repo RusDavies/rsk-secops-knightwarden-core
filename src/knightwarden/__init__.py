@@ -1,3 +1,3 @@
-"""KnightWarden open-core package scaffold."""
+"""KnightWarden governance primitives."""
 
 __version__ = "0.1.0"
