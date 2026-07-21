@@ -1,0 +1,20 @@
+{
+  "provider": "workflow:manual",
+  "external_record_type": "approval_record",
+  "external_record_id": "AR-3003",
+  "external_record_url": "artifact://external-workflow/AR-3003/reference.txt",
+  "external_workflow_status": "unknown",
+  "external_approval_decision": "unknown",
+  "external_task_state": "unknown",
+  "external_evidence_sync_state": "stale",
+  "external_workflow_sync_status": "partial",
+  "external_workflow_event_type": "unknown",
+  "raw_status_value": "looks_done_but_unmapped",
+  "raw_decision_value": "manager_says_ok_in_comment",
+  "raw_payload_ref": "artifact://external-workflow/AR-3003/redacted.json",
+  "authoritative_fields": [
+    "audit_ref"
+  ],
+  "last_observed_at": "2026-07-20T04:20:00Z",
+  "sync_error_summary": "Unmapped external state preserved as non-positive pending local review."
+}

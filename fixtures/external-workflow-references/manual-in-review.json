@@ -1,0 +1,22 @@
+{
+  "provider": "workflow:manual",
+  "external_record_type": "review_request",
+  "external_record_id": "REQ-1001",
+  "external_record_url": "workflow://manual/REQ-1001",
+  "external_workflow_status": "in_review",
+  "external_approval_decision": "pending",
+  "external_task_state": "assigned",
+  "external_evidence_sync_state": "uploaded",
+  "external_workflow_sync_status": "synced",
+  "external_workflow_event_type": "record_updated",
+  "raw_status_value": "waiting_for_security_review",
+  "raw_decision_value": "not_decided",
+  "raw_payload_ref": "artifact://external-workflow/REQ-1001/redacted.json",
+  "authoritative_fields": [
+    "decision",
+    "approver",
+    "task_state"
+  ],
+  "last_observed_at": "2026-07-20T04:10:00Z",
+  "sync_error_summary": null
+}

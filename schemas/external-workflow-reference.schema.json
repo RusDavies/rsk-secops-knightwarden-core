@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.knightwarden.example/external-workflow-reference.schema.json",
+  "title": "External Workflow Reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "provider",
+    "external_record_type",
+    "external_record_id",
+    "external_workflow_status",
+    "external_approval_decision",
+    "external_task_state",
+    "external_evidence_sync_state",
+    "external_workflow_sync_status",
+    "external_workflow_event_type",
+    "raw_status_value",
+    "raw_decision_value",
+    "authoritative_fields",
+    "last_observed_at"
+  ],
+  "properties": {
+    "provider": {
+      "$ref": "common.defs.schema.json#/$defs/id"
+    },
+    "external_record_type": {
+      "$ref": "common.defs.schema.json#/$defs/id"
+    },
+    "external_record_id": {
+      "$ref": "common.defs.schema.json#/$defs/id"
+    },
+    "external_record_url": {
+      "type": ["string", "null"],
+      "pattern": "^(https://|artifact://|workflow://).+"
+    },
+    "external_workflow_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "in_review",
+        "changes_requested",
+        "approved",
+        "approved_with_conditions",
+        "rejected",
+        "cancelled",
+        "expired",
+        "revoked",
+        "closed",
+        "unknown"
+      ]
+    },
+    "external_approval_decision": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "approved_with_conditions",
+        "rejected",
+        "changes_requested",
+        "deferred",
+        "cancelled",
+        "expired",
+        "revoked",
+        "unknown"
+      ]
+    },
+    "external_task_state": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "assigned",
+        "in_progress",
+        "blocked",
+        "completed",
+        "completed_with_exception",
+        "rejected",
+        "cancelled",
+        "overdue",
+        "unknown"
+      ]
+    },
+    "external_evidence_sync_state": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "pending_upload",
+        "uploaded",
+        "verified",
+        "failed",
+        "rejected",
+        "stale",
+        "unknown"
+      ]
+    },
+    "external_workflow_sync_status": {
+      "type": "string",
+      "enum": [
+        "not_configured",
+        "pending",
+        "synced",
+        "partial",
+        "failed",
+        "conflict",
+        "stale",
+        "disabled"
+      ]
+    },
+    "external_workflow_event_type": {
+      "type": "string",
+      "enum": [
+        "record_created",
+        "record_updated",
+        "approval_requested",
+        "approved",
+        "approved_with_conditions",
+        "rejected",
+        "changes_requested",
+        "deferred",
+        "cancelled",
+        "expired",
+        "revoked",
+        "reassigned",
+        "task_created",
+        "task_updated",
+        "task_completed",
+        "task_blocked",
+        "task_rejected",
+        "evidence_uploaded",
+        "evidence_verified",
+        "evidence_failed",
+        "comment_added",
+        "sync_conflict",
+        "unknown"
+      ]
+    },
+    "raw_status_value": {
+      "type": ["string", "null"]
+    },
+    "raw_decision_value": {
+      "type": ["string", "null"]
+    },
+    "raw_payload_ref": {
+      "type": ["string", "null"],
+      "pattern": "^(artifact://|file-ref:|object-ref:).+"
+    },
+    "authoritative_fields": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "decision",
+          "approver",
+          "task_state",
+          "workflow_status",
+          "evidence_sync",
+          "audit_ref"
+        ]
+      }
+    },
+    "last_observed_at": {
+      "$ref": "common.defs.schema.json#/$defs/timestamp"
+    },
+    "sync_error_summary": {
+      "type": ["string", "null"]
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kightwarden.local/schemas/common.defs.schema.json",
+  "title": "KightWarden common definitions",
+  "type": "object",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "under_review",
+        "accepted_as_new_baseline",
+        "accepted_risk",
+        "remediation_required",
+        "remediated",
+        "false_positive",
+        "suppressed"
+      ]
+    },
+    "remediation_status": {
+      "type": "string",
+      "enum": [
+        "recommended",
+        "assigned",
+        "in_progress",
+        "completed",
+        "skipped",
+        "accepted_risk"
+      ]
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$|^sha256:[A-Za-z0-9_.:-]+$"
+    },
+    "json_value": {
+      "description": "Any JSON scalar, object, array, or null.",
+      "type": [
+        "object",
+        "array",
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null"
+      ]
+    },
+    "region_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "replication_status": {
+      "type": "string",
+      "enum": [
+        "not_applicable",
+        "pending",
+        "replicated",
+        "lagging",
+        "failed"
+      ]
+    },
+    "cross_region_metadata": {
+      "type": "object",
+      "required": [
+        "source_region",
+        "idempotency_key",
+        "replication_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_region": {
+          "$ref": "#/$defs/region_id"
+        },
+        "destination_regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/region_id"
+          },
+          "uniqueItems": true
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "per_tenant_sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "object_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previous_object_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "replication_status": {
+          "$ref": "#/$defs/replication_status"
+        },
+        "replicated_at": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/timestamp"
+          }
+        },
+        "event_digest": {
+          "$ref": "#/$defs/hash"
+        },
+        "object_digest_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hash"
+          },
+          "uniqueItems": true
+        },
+        "causation_id": {
+          "$ref": "#/$defs/id"
+        },
+        "correlation_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    }
+  }
+}

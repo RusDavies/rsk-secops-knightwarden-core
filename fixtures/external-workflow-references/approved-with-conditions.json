@@ -1,0 +1,22 @@
+{
+  "provider": "workflow:manual",
+  "external_record_type": "risk_review",
+  "external_record_id": "RR-2042",
+  "external_record_url": "https://workflow.example.invalid/reviews/RR-2042",
+  "external_workflow_status": "approved_with_conditions",
+  "external_approval_decision": "approved_with_conditions",
+  "external_task_state": "assigned",
+  "external_evidence_sync_state": "verified",
+  "external_workflow_sync_status": "synced",
+  "external_workflow_event_type": "approved_with_conditions",
+  "raw_status_value": "conditional_acceptance",
+  "raw_decision_value": "approved_if_controls_complete",
+  "raw_payload_ref": "artifact://external-workflow/RR-2042/redacted.json",
+  "authoritative_fields": [
+    "decision",
+    "task_state",
+    "evidence_sync"
+  ],
+  "last_observed_at": "2026-07-20T04:15:00Z",
+  "sync_error_summary": null
+}
