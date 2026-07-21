@@ -324,13 +324,26 @@ Future external workflow references should be able to carry:
 }
 ```
 
-## Open-core / enterprise boundary
+## Repository scope note
 
-Recommended split:
+This repository includes:
 
-- **Open-core:** normalized vocabulary docs, schema fields, local validators, dry-run fixtures, connector-neutral mapping semantics, static/imported workflow references, and manual evidence exports.
-- **Enterprise:** live ServiceNow/JSM/Microsoft/GitHub/generic webhook connector implementations, credentials, webhook endpoints, customer-specific mapping config UI, bidirectional sync, reconciliation jobs, escalation/SLA automation, attachment verification, and support for custom external workflow tables.
+- normalized vocabulary docs;
+- schema fields;
+- local validators;
+- dry-run fixtures;
+- connector-neutral mapping semantics;
+- static/imported workflow references;
+- manual evidence exports.
+
+Live ServiceNow/JSM/Microsoft/GitHub/generic webhook connector implementations,
+credentials, webhook endpoints, site-specific mapping configuration UI,
+bidirectional sync, reconciliation jobs, escalation/SLA automation, attachment
+verification, and custom external workflow table support should live outside
+this core repository.
 
 ## Related Documents
 
-Enterprise integration, connector implementation, and product packaging records intentionally live outside the core repository. Core keeps the connector-neutral vocabulary and local validation surface only.
+Integration, connector implementation, and product packaging records
+intentionally live outside the core repository. Core keeps the
+connector-neutral vocabulary and local validation surface only.

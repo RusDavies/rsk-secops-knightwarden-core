@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://kightwarden.local/schemas/common.defs.schema.json",
-  "title": "KightWarden common definitions",
+  "$id": "https://knightwarden.local/schemas/common.defs.schema.json",
+  "title": "KnightWarden common definitions",
   "type": "object",
   "$defs": {
     "id": {

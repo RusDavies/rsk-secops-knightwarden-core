@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOC = ROOT / "docs" / "normalized-external-approval-vocabulary.md"
 README = ROOT / "README.md"
+LEGACY_PRODUCT_SPELLING = "Kight" + "Warden"
 
 
 class VocabularyError(Exception):
@@ -49,10 +50,10 @@ def main() -> int:
         "external_workflow_sync_status",
         "external_workflow_event_type",
         "If external workflow sends unknown state/decision",
-        "Open-core / enterprise boundary",
-        "Enterprise integration, connector implementation, and product packaging records intentionally live outside the core repository.",
+        "Repository scope note",
+        "Integration, connector implementation, and product packaging records",
     ])
-    require("KightWarden" not in DOC.read_text(encoding="utf-8"), "legacy product spelling remains")
+    require(LEGACY_PRODUCT_SPELLING not in DOC.read_text(encoding="utf-8"), "legacy product spelling remains")
     require_tokens(README, [
         "docs/normalized-external-approval-vocabulary.md",
         "scripts/check_normalized_external_approval_vocabulary.py",
