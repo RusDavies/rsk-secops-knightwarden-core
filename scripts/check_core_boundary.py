@@ -60,7 +60,8 @@ def main() -> int:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for token in [
         "Open-core repository for KnightWarden governance primitives.",
-        "first core nucleus",
+        "portable governance primitives",
+        "This repository currently includes",
     ]:
         require(token in readme, f"README.md missing token: {token}")
     require("## Boundary" not in readme, "README.md must not expose a boundary section")

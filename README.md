@@ -5,11 +5,11 @@
 
 Open-core repository for KnightWarden governance primitives.
 
-This repository contains downstream-agnostic core code only: public contracts, local/self-hosted primitives, fictional fixtures, transparent checks, and tests.
+This repository contains portable governance primitives: public contracts, local validation helpers, example fixtures, transparent checks, and tests.
 
 ## Current State
 
-This repository contains the Python package scaffold plus the first core nucleus: local schema validation, tenant capacity limiting, tenant admission control, common schema definitions, the normalized external approval vocabulary, the external workflow reference model, and a small external workflow reference loader.
+This repository currently includes local schema validation, tenant capacity limiting, tenant admission control, common schema definitions, the normalized external approval vocabulary, the external workflow reference model, and a small external workflow reference loader.
 
 ## Core Vocabulary
 
